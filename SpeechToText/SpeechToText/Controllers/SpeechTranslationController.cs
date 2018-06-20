@@ -40,7 +40,8 @@ namespace STTRest.Controllers
 		{
             //_azureSpeechTranslatorService.TranslateSpeech("speak.wav");
             List<string> a = new List<string>() { "fr", "es" };
-            TextTranslationResult result = await Task.Run(() => _watsonTextTranslationService.TranslateText("Hello", "en", a));
+            //TextTranslationResult result = await Task.Run(() => _watsonTextTranslationService.TranslateText("Hello", "en", a));
+            TextTranslationResult result = await Task.Run(() => _azureTextTranslatorService.TranslateText("Good morning", a));
             
 			return Ok();
 		}
