@@ -10,3 +10,5 @@
 /SpeechToText/.vs/
 /SpeechToText/SpeechToText/appsettings.Development.json
 /SpeechToText/.idea/
+/SpeechToTextClient/package-lock.json
+/SpeechToTextClient/yarn.lock
