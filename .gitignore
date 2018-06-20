@@ -1,0 +1,12 @@
+/SpeechToText/Services/obj/
+/SpeechToText/SpeechToText/bin/
+/SpeechToText/SpeechToText/obj/
+/SpeechToText/SpeechToText/bin/
+/.DS_Store
+/SpeechToText/.DS_Store
+/SpeechToText/Services/bin/
+/SpeechToText/Services/obj/
+/.vscode/
+/SpeechToText/.vs/
+/SpeechToText/SpeechToText/appsettings.Development.json
+/SpeechToText/.idea/

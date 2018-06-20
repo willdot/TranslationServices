@@ -1,0 +1,49 @@
+<div id="home-container" class="container-fluid d-flex flex-column">
+  <div id="title-and-results-container">
+
+    <div id="title-container" class="row text-center" [@flyInOutTop]>
+      <h1 class="col text-light h-100 pl-0 pr-0">{{title}}</h1>
+    </div>
+
+    <div class='col-2 container-fluid'[@flyInOutTop]>
+      <button class="btn btn-dark" (click)="onEnableTranslationsClick()">{{type}}</button>
+    </div>
+
+    <div *ngIf='translations' class="col-4 language-options" [@flyInOutWithFade]>
+      <label>Input Language</label>
+      <select (change)='languageChanged($event.target.value)' class="form-control">
+        <option *ngFor="let language of languages" value={{language.code}}>
+          {{language.name}}
+        </option>
+      </select>
+
+    </div>
+
+    <div *ngIf='translations' class="col-4 language-options" [@flyInOutWithFade]>
+      <label>Output Languages</label>
+      <div class="form-check" *ngFor="let language of languages">
+          <input class="form-check-input" (change)="onOutputChange(language.code, $event.target.checked)"name="{{ language.name }}" type="checkbox" id="{{language.code}}">
+          <label class="form-check-label" for="{{language.name}}">
+              {{language.name}}
+          </label>
+      </div>
+    </div>
+
+    <div id="results-container" class="row pt-4 pb-4" *ngIf="wavBase64String!='' && !translations" [@flyInOutWithFade]>
+      <app-aws [wavBase64String]="wavBase64String" class="col-12 col-sm-6 col-lg-4 mb-4"></app-aws>
+      <app-azure [wavBase64String]="wavBase64String" class="col-12 col-sm-6 col-lg-4 mb-4"></app-azure>
+      <app-watson [wavBase64String]="wavBase64String" class="col-12 col-sm-6 col-lg-4"></app-watson>
+    </div>
+
+    <div id="results-container" class="row pt-4 pb-4" *ngIf="wavBase64String!='' && translations" [@flyInOutWithFade]>
+      <app-azure-translate [wavBase64String]="wavBase64String" [inputLanguage]="inputLanguageCode" [outputLanguages]="outputLanguageCodes" class="col-12 col-sm-6 col-lg-4"></app-azure-translate>
+      <app-watson-translate [wavBase64String]="wavBase64String" [inputLanguage]="inputLanguageCode" [outputLanguages]="outputLanguageCodes" class="col-12 col-sm-6 col-lg-4"></app-watson-translate>
+    </div>
+
+  </div>
+
+  <div id="record-container" class="row align-items-center" [@slideInOutBottom]>
+    <app-record (audioEmitter)="handleAudioChange($event)" (completedEmitter)="handleCompletion($event)" class="col"></app-record>
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="card" *ngIf="responseModel != null">
+
+  <h6 class="card-header font-weight-bold">
+    Azure Text Translate
+  </h6>
+
+  <div class="card-body">
+    <div class="row">
+      <p class="card-text"> Detected Text : {{responseModel.detectedText}}
+    </div>
+    <div class="row">
+      <p class="card-text"> Total Time : {{responseModel.totalHttpTimeInMilliseconds | millisecondsToSeconds}} seconds
+    </div>
+    <div class="row">
+      <p class="card-text"> External Service Time : {{responseModel.externalServiceTimeInMilliseconds | millisecondsToSeconds}} seconds
+    </div>
+    <div class="row">
+      <p class="card-text"> Backend Time: {{responseModel.totalBackendTimeInMilliseconds | millisecondsToSeconds}} seconds
+    </div>
+    <div class="row" *ngFor='let translation of responseModel.jsonResult[0].translations'>
+      <p class="card-text"> Result ({{translation['to']}}): {{translation['text']}}
+    </div>
+  </div>
+</div>
+
+<div class="card" *ngIf="responseModel == null">
+  <h6 class="card-header font-weight-bold">
+    Azure Speech Translation
+  </h6>
+  <div class="card-body">
+    <h1 *ngIf="!error" class="card-title text-center">
+      <i class="fa fa-spinner fa-spin"></i>
+    </h1>
+    <h5 *ngIf="error" class="card-title text-center">Could not obtain data</h5>
+  </div>
+</div>
