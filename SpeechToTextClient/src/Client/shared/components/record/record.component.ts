@@ -29,13 +29,13 @@ import { HomeComponent } from '../../../app/home/home.component';
 export class RecordComponent implements OnInit {
 
   @ViewChild('audioElement')
-  private audioElement: any;
-  private wavBase64String = '';
-  private recording = false;
-  private completed = false;
-  private visualisationValues = new Array<number>();
-  private barWidth = 1;
-  private barGap = 0;
+   audioElement: any;
+  wavBase64String = '';
+   recording = false;
+   completed = false;
+   visualisationValues = new Array<number>();
+   barWidth = 1;
+   barGap = 0;
 
   @Input() InputLanguage: String;
   @Input() OutputLangauges: Array<string>;

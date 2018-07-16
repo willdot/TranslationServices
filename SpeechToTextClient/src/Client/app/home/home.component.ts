@@ -56,11 +56,11 @@ import { Languages } from '../../shared/models/languages';
   ]
 })
 export class HomeComponent {
-  private title = 'Speech to Text Comparator';
-  private wavBase64String = '';
+   title = 'Speech to Text Comparator';
+   wavBase64String = '';
   private completed = false;
-  private translations = false;
-  private type = 'Translations';
+   translations = false;
+   type = 'Translations';
   private inputLanguageCode = 'en-GB';
   private outputLanguageCodes = [];
 
