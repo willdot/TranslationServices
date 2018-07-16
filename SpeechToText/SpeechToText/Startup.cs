@@ -13,8 +13,6 @@ namespace STTRest
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            var x = Configuration.GetSection("MyConfig");
-
         }
 
         public IConfiguration Configuration { get; }
@@ -40,7 +38,7 @@ namespace STTRest
             });
 
             // Add our Config object so it can be injected
-            services.Configure<MyConfig>(Configuration.GetSection("MyConfig"));
+            services.Configure<MyConfig>(Configuration);
 
             Services.Startup.ConfigureServices(services, Configuration);
         }

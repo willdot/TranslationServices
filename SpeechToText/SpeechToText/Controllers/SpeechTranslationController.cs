@@ -43,7 +43,7 @@ namespace STTRest.Controllers
             //TextTranslationResult result = await Task.Run(() => _watsonTextTranslationService.TranslateText("Hello", "en", a));
             TextTranslationResult result = await Task.Run(() => _azureTextTranslatorService.TranslateText("Good morning", a));
             
-			return Ok();
+			return Ok(result);
 		}
 
         [HttpPost]
