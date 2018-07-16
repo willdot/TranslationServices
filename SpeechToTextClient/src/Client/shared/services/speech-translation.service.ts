@@ -12,7 +12,7 @@ import { TranslationPost } from '../models/translation-post';
 })
 export class SpeechTranslationService {
 
-  _apiRoot = 'http://localhost:51724/api/SpeechTranslation/';
+  _apiRoot = 'https://translationservices.azurewebsites.net/api/SpeechTranslation/';
   constructor(private _http: HttpClient) { }
 
   postWavAzure(wavBlob: TranslationPost): Observable<any> {

@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map';
 })
 export class SpeechtotextService {
 
-  _apiRoot = 'http://localhost:51724/api/speechToText/';
+  _apiRoot = 'https://translationservices.azurewebsites.net/api/speechToText/';
   constructor(private _http: HttpClient) { }
 
   postWAVAzure(wavBlob: any): Observable<any> {

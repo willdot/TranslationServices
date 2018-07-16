@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/SpeechToTextClient",
+            "outputPath": "dist/publicweb",
             "index": "src/client/index.html",
             "main": "src/client/main.ts",
             "polyfills": "src/client/polyfills.ts",
@@ -21,6 +21,17 @@
             "assets": [
               "src/client/favicon.ico",
               "src/client/assets",
+              "src/client/web.config",
+              {
+                "glob": "web.config",
+                "input": "./client/",
+                "output": "./publicweb/"
+              },
+              {
+                "glob": "web.config",
+                "input": "./client/",
+                "output": "./"
+              },
               {
                 "glob": "index.js",
                 "input": "./server/",
