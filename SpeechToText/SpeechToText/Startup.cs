@@ -33,8 +33,7 @@ namespace STTRest
                     builder => builder.AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowCredentials()
-                        .WithExposedHeaders("x-custom-header"));
+                        .AllowCredentials());
             });
 
             // Add our Config object so it can be injected
